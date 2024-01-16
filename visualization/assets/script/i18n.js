@@ -58,7 +58,7 @@ fetchTranslations(function () {
     updateImageSources(initialLanguage);
 
     // Event listener for language switch button
-    document.getElementById('changeLanguageButton').addEventListener('click', function () {
+    document.getElementById('language').addEventListener('click', function () {
         
         var newLanguage;
         var currentTitle = document.title.trim().toLowerCase();

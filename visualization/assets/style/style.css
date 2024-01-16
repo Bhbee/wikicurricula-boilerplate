@@ -46,8 +46,8 @@ img {
   width: 97%;
   margin: 10px auto 0; }
   @media only screen and (max-width: 768px) {
-    .container {
-      width: 95%; } }
+    .container, #pageSelector {
+      width: 70%; } }
 
 /* ------- header ------- */
 header {
@@ -433,34 +433,37 @@ footer {
   opacity:1;
 }
 .language_name:hover {
-  color: brown;
+  color: #500649;
   opacity: 0.7; /* Reduce opacity on hover */
 }
 
 #language {
 	display: flex;
+  position: absolute;
 	margin: 0; 
-	width: 10rem;
+  right: 60px;
+	width: 5rem;
 	padding: 4px 10px 2px 4px; 
 	border-left: 1px solid #d6d5d5; 
-	text-align: right; 
+	text-align: center;
 	background-color: #efefef; 
-	
+	cursor: pointer;
+  height: 45px;
+  margin-top: 1px;
 }
 
 .language_icon {
 	background: url(../../assets/img/language.svg) center center / 55% no-repeat;
-	width: 27px;
+	width: 25px;
 }
 
 .language_name {
-	width: 8%;
-	text-align: center; 
+	width: 30%;
+	text-align: right; 
 	font-size: .85rem;
-	padding-top: 0.6rem;
-  border: none;
-  cursor: pointer;
+	padding-top: 0.3rem;
   transition: opacity 0.3s ease;
+  border: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -470,4 +473,62 @@ footer {
 		padding-top: 0rem;
 	}
 
+}
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#form-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#form-button:hover {
+  background-color: #347adb;
+}
+
+/* Additional Styles for Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

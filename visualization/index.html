@@ -44,22 +44,18 @@
 							</a></option>
 						</select>
 					</h1>
-					
 				</div>
-				
-				
 				<button id="darkModeButton" class="dark-mode-button" onclick="toggleDarkMode()">
 					<svg id="moonStarsIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
 						<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
 						<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
 					</svg>
-				</button>	
+				</button>		
 			</div>
 			<div id="language">
 				<div class="language_icon"></div>
-				<button class="language_name lang_switch" id="changeLanguageButton" data-i18n="changeLanguageButton">ES</button>
+				<button class="language_name lang_switch text-uppercase fw-bold" id="changeLanguageButton" data-i18n="changeLanguageButton">ES</button>
 			</div>
-			
 			<!--<nav id="menu">
 				<ul class="container">
 					<li><a href="../" style="color: #ccc" class="noselect">Most viewed entries</a></li>
@@ -266,9 +262,57 @@
 				<a href="#" aria-label="to the top button" class="to-top">
 					<i class="fas fa-chevron-up"></i>
 			  	</a>
-				<div id="sub_footer" class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-					Wikicurrícula Uy |
-					<a class="text-dark text-decoration-underline" aria-label="Wikimedistas de Uruguay" href="https://wikimedistas.uy" target="_blank">Wikimedistas de Uruguay</a>
+				<div id="sub_footer" class="text-center py-2" style="background-color: rgba(0, 0, 0, 0.2)">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<p>We value your feedbacks
+								  <a class="text-dark text-decoration-underline" aria-label="Open Feedback Form" href="#" onclick="openFeedbackForm()">Share them with us!</a>
+								</p>
+							  </div>
+							<div class="col-md-4">
+								<p>Wikicurrícula Uy |
+									<a class="text-dark text-decoration-underline" aria-label="Wikimedistas de Uruguay" href="https://wikimedistas.uy" target="_blank">Wikimedistas de Uruguay</a>
+								</p>
+							</div>
+							<div class="col-md-4">
+								<p> Observed a bug?
+									<a class="text-dark text-decoration-underline" aria-label="Wikimedistas de Uruguay" href="https://github.com/wikicurricula-uy/wikicurricula-boilerplate/issues" target="_blank">Report here</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>				
+				<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title text-uppercase fw-bold" id="feedbackModalLabel">We Value your feedbacks!</h5>
+							<button id="form-button" type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form id="feedbackForm">
+								<div class="form-group">
+									<label for="email">Email:</label>
+									<input type="email" id="email" name="email">
+								</div>
+								<div class="form-group">
+									<label for="feedback">Feedback:</label>
+									<textarea class="form-control" id="feedback" name="feedback" rows="3" required></textarea>
+								</div>
+							
+								<!-- Add hidden fields for title and token -->
+								<input type="hidden" name="title" value="YourDiscussionPageTitle">
+								<input type="hidden" name="token" value="">
+							
+								<button id="form-button" type="submit" onclick="submitForm()">Submit</button>
+							</form>
+							
+						</div>
+					  </div>
+					</div>
 				</div>
 			</footer>
 		</main>
@@ -279,5 +323,16 @@
 		<script src="assets/script/dv1.js"></script>
 		<script src="assets/script/dark-mode.js"></script>
 		<script src="assets/script/i18n.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<!-- <script src="assets/script/submit_form.js"></script> -->
+		<script>
+		function openFeedbackForm() {
+			$('#feedbackModal').modal('show');
+		}
+		</script>
+
 	</body>
 </html>
